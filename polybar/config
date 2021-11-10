@@ -1,0 +1,78 @@
+[colors]
+black = #282a36
+gray = #44475a
+comment = #6272a4
+white = #f8f8f2
+cyan = #8be9fd
+green = #50fa7b
+orange = #ffb86c
+pink = #ff79c6
+purple = #bd93f9
+red = #ff5555
+yellow = #f1fa8c
+
+[bar/main]
+fixed-center = true
+padding = 4
+module-margin = 2
+monitor =
+background = ${colors.black}
+foreground = ${colors.white}
+font-0 = "Noto Sans:size=13"
+
+wm-name = bspwm
+wm-restack = bspwm
+
+modules-center = date
+modules-right = cpu memory battery
+
+[module/cpu]
+type = internal/cpu
+
+label = CPU %percentage%%
+format-foreground = ${colors.purple}
+
+[module/memory]
+type = internal/memory
+interval = 2
+
+format = <label>
+format-foreground = ${colors.purple}
+
+label = RAM %percentage_used%%
+
+[module/battery]
+type = internal/battery
+battery = BATT
+adapter = ACAD
+poll-interval = 10
+
+format-foreground = ${colors.purple}
+format-full-foreground = ${colors.purple}
+format-charged-foreground = ${colors.purple}
+format-charging-foreground = ${colors.purple}
+format-discharging-foreground = ${colors.purple}
+
+format-charged = BTT full
+label-full = BTT full
+format-charging = BTT <label-charging>
+format-discharging = BTT <label-discharging>
+
+label-charging = %percentage%%+
+label-discharging = %percentage%%-
+
+[module/date]
+type = internal/date
+
+interval = 1.0
+
+format-foreground = ${colors.cyan}
+date = %b %d %a   %I:%M %p%
+
+; Optional time format
+time = %H:%M
+
+; if `date-alt` or `time-alt` is defined, clicking
+; the module will toggle between formats
+date-alt = %A, %d %B %Y
+time-alt = %H:%M:%S
