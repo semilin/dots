@@ -23,8 +23,25 @@ font-0 = "Noto Sans:size=13"
 wm-name = bspwm
 wm-restack = bspwm
 
+modules-left = github
 modules-center = date
 modules-right = cpu memory battery
+
+[module/github]
+type = internal/github
+
+token = ${file:/home/semi/docs/.important/git_notifications}
+
+user = semi
+
+interval = 30
+
+format = GIT <label>
+label = %notifications%
+
+empty-notifications = false
+
+format-foreground = ${colors.pink}
 
 [module/cpu]
 type = internal/cpu
