@@ -13,4 +13,5 @@ set PATH $PATH $HOME/go/bin
 set PATH $PATH $HOME/.local/bin
 set PATH $PATH $HOME/.local/share/pyenv/bin
 set PATH $PATH $HOME/.nimble/bin
+set PATH $PATH $HOME/.config/bin
 alias dotfiles='git --git-dir=$HOME/.config --work-tree=$HOME/.config'

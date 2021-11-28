@@ -1,0 +1,8 @@
+#!/bin/sh
+getmail -nq
+notmuch new --quiet
+n=$(unread)
+if [ $n -gt 0 ] 
+then
+	notify-send "$(unread) new emails received"
+fi

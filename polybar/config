@@ -23,9 +23,9 @@ font-0 = "Noto Sans:size=13"
 wm-name = bspwm
 wm-restack = bspwm
 
-modules-left = github
+modules-left = github mail filesystem
 modules-center = date
-modules-right = cpu memory battery
+modules-right = network cpu memory battery
 
 [module/github]
 type = internal/github
@@ -36,18 +36,60 @@ user = semi
 
 interval = 30
 
-format = GIT <label>
+format = GIT 0<label>
 label = %notifications%
 
 empty-notifications = false
 
 format-foreground = ${colors.pink}
 
+[module/mail]
+type = custom/script
+
+exec = unread
+
+interval = 90
+
+format = MAIL <label>
+format-foreground = ${colors.pink}
+
+click-left = emacsclient -c -e "(notmuch)"
+
+[module/filesystem]
+type = internal/fs
+
+mount-0 = /
+interval = 60
+
+format-mounted = FSM <label-mounted>
+
+label-mounted = %percentage_used%%
+
+format-foreground = ${colors.pink}
+format-mounted-foreground = ${colors.pink}
+format-unmounted-foreground = ${colors.pink}
+
+[module/network]
+type = internal/network
+
+interface = wlp4s0
+interval = 2
+
+format-foreground = ${colors.purple}
+
+label-connected = NET ↑%upspeed% ↓%downspeed%
+label-disconnected = NET down
+
+format-connected-foreground = ${colors.purple}
+format-disconnected-foreground = ${colors.red}
+
 [module/cpu]
 type = internal/cpu
 
 label = CPU %percentage%%
 format-foreground = ${colors.purple}
+
+click-left = alacritty -e htop
 
 [module/memory]
 type = internal/memory
@@ -57,6 +99,8 @@ format = <label>
 format-foreground = ${colors.purple}
 
 label = RAM %percentage_used%%
+
+click-left = alacritty -e htop
 
 [module/battery]
 type = internal/battery

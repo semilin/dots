@@ -7,7 +7,7 @@ super + Return
 	alacritty
 
 super + shift + Return
-	emacsclient -c -e "(eshell)"
+	emacsclient -c -e "(eshell)" &
 
 # program launcher
 super + @space
@@ -21,7 +21,10 @@ super + k
 	slock
 
 super + o
-	emacsclient -c
+	emacsclient -c &
+
+super + c
+    emacsclient -c -e "(org-capture)" &
 
 #
 # bspwm hotkeys

@@ -1,9 +1,11 @@
 shell:
     program: /bin/fish
 
-background-opacity: 0.5
+window:
+  opacity: 0.8
 font:
     size: 13
+    family: Fira Code Nerd Font
 colors:
   primary:
     background: '0x282a36'
