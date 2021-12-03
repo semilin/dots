@@ -1,6 +1,6 @@
 #! /bin/sh
 
-#setxkbmap semimak -variant angle -option caps:escape -option compose:menu
+setxkbmap semimak -variant angle -option caps:escape -option compose:menu
 pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc monitor -d I II III IV V VI VII VIII IX X
